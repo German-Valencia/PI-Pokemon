@@ -9,7 +9,7 @@ export default function Home() {
   const dispatch = useDispatch();
   const allPokemons = useSelector((state) => state.pokemons);
   const [currentPage, setCurrentPage] = useState(1); // página actual que inicia en 1
-  const [pokemonsPerPage, setPokemonsPerPage] = useState(12); //pokemons por página el redme pide 12
+  const [pokemonsPerPage, setPokemonsPerPage] = useState(12); //pokemons por página el readme pide 12
   const indexOfLastPokemon = currentPage * pokemonsPerPage; //6 índice del último pokemon es la página actual por la cantidad de pokemones por página
   const indexOfFirstPokemon = indexOfLastPokemon - pokemonsPerPage; //0 indice del primer pokemon es igual al indice del ultimo pokemon menos los pokemones por pagina (12)
   const currentPokemons = allPokemons.slice(
