@@ -8,7 +8,7 @@ html body {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .filters {
@@ -27,7 +27,7 @@ html body {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   width: 70vw;
   height: 100%;
   border-radius: 10px;
