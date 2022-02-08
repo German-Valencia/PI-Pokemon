@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from 'react-router-dom';
-import pokemonImg from '../../img/pokemonTitle.png'
+import pokemonImg from '../../img/pokemonTitle1.png'
 import styles from './Nav.module.css'
 
 const Nav = () => {
