@@ -3,11 +3,11 @@ import { composeWhitDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import rootReducer from "../reducer";
 
-export const store = createStore(
+const store = createStore(
   rootReducer,
   composeWhitDevTools(applyMiddleware(thunk))
 );
- */
+export default store; */
 
 import { createStore, applyMiddleware, compose } from "redux";
 import rootReducer from "../reducer";
