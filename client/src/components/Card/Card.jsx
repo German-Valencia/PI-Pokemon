@@ -21,7 +21,7 @@ export default function Card({ name, image, types, id }) {
             {types?.map((e, k) => {
               return (
                 <div className={styles.types} key={k}>
-                  <img className={styles.typesImg} src={e.img} alt="X" />
+                  <img className={styles.typesImg} src={e.img} alt="" />
                   <p className={styles.text}>
                     {e.name.charAt(0).toUpperCase() + e.name.slice(1)}
                   </p>

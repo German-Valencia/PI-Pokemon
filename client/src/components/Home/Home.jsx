@@ -13,8 +13,9 @@ export default function Home() {
   const allPokemons = useSelector((state) => state.pokemons);
   //Paginado acá abajo
   const [currentPage, setCurrentPage] = useState(1);
-  const [pokemonsPerPage, setPokemonsPerPage] = useState(12);
-  const [order, setOrder] = useState(""); //Para modificar el estado local y me ayude al renderizado
+  const [pokemonsPerPage, setPokemonsPerPage] = useState(12); // eslint-disable-line no-unused-vars
+  const [order, setOrder] = useState(""); // eslint-disable-line no-unused-vars 
+  //Para modificar el estado local y me ayude al renderizado
   const indexOfLastPokemon = currentPage * pokemonsPerPage;
   const indexOfFirstPokemon = indexOfLastPokemon - pokemonsPerPage;
   const currentPokemons = allPokemons.slice(

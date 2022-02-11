@@ -41,12 +41,13 @@ const rootReducer = (state = initialState, action) => {
     case FILTER_CREATED:
       let copy = state.allPokemons;
       let createdFiltered;
-      if (action.payload === "created") {
+      if (action.payload === "created" && state.allPokemons.createdInDb) {
         createdFiltered = copy.filter((e) => e.createdInDb);
       } else if (action.payload === "api") {
         createdFiltered = copy.filter((e) => !e.createdInDb);
       } else {
         createdFiltered = copy;
+        alert("There are no created pokemons yet");
       }
       return {
         ...state,
