@@ -15,8 +15,7 @@ export const CLEAN_POKEMONS = "CLEAN_POKEMONS";
 export const getPokemons = () => {
   return async (dispatch) => {
     try {
-      let url = "http://localhost:3001/pokemons";
-      let json = await axios.get(url);
+      let json = await axios.get("http://localhost:3001/pokemons");
       return dispatch({
         type: GET_POKEMONS,
         payload: json.data,
@@ -37,8 +36,7 @@ export const cleanPokemons = (dispatch) => {
 export const getAlltypes = () => {
   return async (dispatch) => {
     try {
-      let url = "http://localhost:3001/types";
-      let json = await axios.get(url);
+      let json = await axios.get("http://localhost:3001/types");
       return dispatch({
         type: GET_ALL_TYPES,
         payload: json.data,
@@ -77,10 +75,12 @@ export const filterStr = (payload) => {
   };
 };
 
-export const getPokemonByName = (name) => {
+export const getPokemonByName = (payload) => {
   return async (dispatch) => {
     try {
-      var json = await axios.get(`http://localhost:3001/pokemons?name=${name}`);
+      var json = await axios.get(
+        `http://localhost:3001/pokemons?name=${payload}`
+      );
       return dispatch({
         type: GET_POKEMON_NAME,
         payload: json.data,
@@ -107,17 +107,15 @@ export const getDetail = (id) => {
   };
 };
 
-/* export function getDetailPromise(id) {
-    return function (dispatch) {
-        axios.get(`http://localhost:3001/pokemons/${id}`)
-        .then(res => res.data)
-        .then(res => dispatch({
-            type: GET_DETAILS,
-            payload: res
-        }))
-        .catch(err => console.log(err))
-    }
-} */
+/* export const getDetail = (id) => {
+  return (dispatch) => {
+    axios
+      .get(`http://localhost:3001/pokemons/${id}`)
+      .then((json) => json.data)
+      .then((json) => dispatch({ type: GET_DETAILS, payload: json }))
+      .catch((err) => console.log(err));
+  };
+}; */
 
 export const cleanDetail = (dispatch) => {
   return dispatch({
@@ -133,7 +131,6 @@ export const postPokemon = (payload) => {
         "http://localhost:3001/pokemons",
         payload
       );
-      console.log(createPoke);
       alert("New pokemón is created!");
       return createPoke;
     } catch (e) {

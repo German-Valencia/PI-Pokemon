@@ -89,7 +89,7 @@ const rootReducer = (state = initialState, action) => {
         action.payload === "asc"
           ? copy4.sort((a, b) => a.attack - b.attack)
           : copy4.sort((a, b) => b.attack - a.attack);
-      // console.table(sortedStr);
+
       return {
         ...state,
         pokemons: sortedStr,

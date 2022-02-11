@@ -270,7 +270,7 @@ const PokemonCreate = () => {
                     handleDelete(e);
                   }}
                 >
-                  x
+                 X
                 </button>
               </div>
             );
