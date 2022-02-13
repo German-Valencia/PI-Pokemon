@@ -40,14 +40,14 @@ const rootReducer = (state = initialState, action) => {
 
     case FILTER_CREATED:
       let copy = state.allPokemons;
+      console.log(copy.filter((e) => e.createdInDb))
       let createdFiltered;
-      if (action.payload === "created" && state.allPokemons.createdInDb) {
+      if (action.payload === "created" && copy.filter((e) => e.createdInDb)) {
         createdFiltered = copy.filter((e) => e.createdInDb);
       } else if (action.payload === "api") {
         createdFiltered = copy.filter((e) => !e.createdInDb);
       } else {
-        createdFiltered = copy;
-        alert("There are no created pokemons yet");
+        createdFiltered = copy;        
       }
       return {
         ...state,
@@ -70,6 +70,9 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         pokemons: typeFiltered,
       };
+
+
+
     case ORDER_NAME:
       let copy3 = state.pokemons;
       let sortedName =
@@ -84,17 +87,24 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         pokemons: sortedName,
       };
+
+
+
     case ORDER_STR:
-      let copy4 = state.pokemons;
+      let copy4 = state.pokemons;      
       let sortedStr =
         action.payload === "asc"
           ? copy4.sort((a, b) => a.attack - b.attack)
           : copy4.sort((a, b) => b.attack - a.attack);
-
       return {
         ...state,
         pokemons: sortedStr,
       };
+
+
+
+
+
     case GET_POKEMON_NAME:
       return {
         ...state,

@@ -83,7 +83,7 @@ const PokemonCreate = () => {
       });
       e.target.value = "Select type";
     } else {
-      alert("No se pueden elegir mas de dos tipos de pokemon");
+      alert("You cannot choose more than two types of pokemon");
     }
   };
 
@@ -244,7 +244,7 @@ const PokemonCreate = () => {
             <p className={styles.p}>{errors.img}</p>
           </div>
         </div>
-        <div>
+        <div className={styles.element}>
           <select
             className={styles.select}
             onChange={(e) => {
@@ -276,7 +276,7 @@ const PokemonCreate = () => {
             );
           })}
         </div>
-        <button className={styles.btnCreate} type="submit">
+        <button className={styles.btnCreate} type="submit" disabled={!input.name}>
           Create!
         </button>
       </form>

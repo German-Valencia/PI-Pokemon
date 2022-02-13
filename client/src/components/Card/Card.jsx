@@ -4,7 +4,6 @@ import noImage from "../../img/noImage.png";
 import styles from "./Card.module.css";
 
 export default function Card({ name, image, types, id }) {
-  
   return (
     <div>
       <NavLink className={styles.none} to={`/pokemon/${id}`}>
@@ -21,7 +20,7 @@ export default function Card({ name, image, types, id }) {
             {types?.map((e, k) => {
               return (
                 <div className={styles.types} key={k}>
-                  <img className={styles.typesImg} src={e.img} alt="" />
+                  <img className={styles.typesImg} src={e.img} alt="x" />
                   <p className={styles.text}>
                     {e.name.charAt(0).toUpperCase() + e.name.slice(1)}
                   </p>

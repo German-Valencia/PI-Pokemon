@@ -7,8 +7,9 @@ const Nav = () => {
     return (
         <header>
             <nav className={styles.nav}>
-                <div>
+                <div><Link to='/about'>
                     <img src={pokemonImg} alt="img not found" className={styles.img} /> 
+                    </Link>
                 </div>
                 <div>  
                     <Link to='/create'>
