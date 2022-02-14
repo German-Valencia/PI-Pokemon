@@ -40,14 +40,13 @@ const rootReducer = (state = initialState, action) => {
 
     case FILTER_CREATED:
       let copy = state.allPokemons;
-      console.log(copy.filter((e) => e.createdInDb))
       let createdFiltered;
-      if (action.payload === "created" && copy.filter((e) => e.createdInDb)) {
+      if (action.payload === "created") {
         createdFiltered = copy.filter((e) => e.createdInDb);
       } else if (action.payload === "api") {
         createdFiltered = copy.filter((e) => !e.createdInDb);
       } else {
-        createdFiltered = copy;        
+        createdFiltered = copy;
       }
       return {
         ...state,
@@ -71,14 +70,12 @@ const rootReducer = (state = initialState, action) => {
         pokemons: typeFiltered,
       };
 
-
-
     case ORDER_NAME:
       let copy3 = state.pokemons;
       let sortedName =
         action.payload === "asc"
           ? copy3.sort((a, b) => {
-              return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+              return a.name.toLowerCase().localeCompare(b.name.toLowerCase()); //0-1--1
             })
           : copy3.sort((a, b) => {
               return b.name.toLowerCase().localeCompare(a.name.toLowerCase());
@@ -88,22 +85,16 @@ const rootReducer = (state = initialState, action) => {
         pokemons: sortedName,
       };
 
-
-
     case ORDER_STR:
-      let copy4 = state.pokemons;      
+      let copy4 = state.pokemons;
       let sortedStr =
         action.payload === "asc"
-          ? copy4.sort((a, b) => a.attack - b.attack)
+          ? copy4.sort((a, b) => a.attack - b.attack) //10-15
           : copy4.sort((a, b) => b.attack - a.attack);
       return {
         ...state,
         pokemons: sortedStr,
       };
-
-
-
-
 
     case GET_POKEMON_NAME:
       return {

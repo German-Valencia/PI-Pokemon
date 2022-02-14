@@ -26,6 +26,17 @@ export const getPokemons = () => {
   };
 };
 
+
+/* export const getPokemons = () => {
+  return (dispatch) => {
+    axios
+      .get("http://localhost:3001/pokemons")
+      .then((json) => json.data)
+      .then((json) => dispatch({ type: GET_POKEMONS, payload: json }))
+      .catch((e) => console.log(e));
+  };
+}; */
+
 export const cleanPokemons = (dispatch) => {
   return dispatch({
     type: CLEAN_POKEMONS,
@@ -46,6 +57,16 @@ export const getAlltypes = () => {
     }
   };
 };
+
+/* export const getAlltypes = () => {
+  return (dispatch) => {
+    axios
+      .get("http://localhost:3001/types")
+      .then((json) => json.data)
+      .then((json) => dispatch({ type: GET_ALL_TYPES, payload: json }))
+      .catch((e) => console.log(e));
+  };
+}; */
 
 export const filterCreated = (payload) => {
   return {
@@ -93,6 +114,20 @@ export const getPokemonByName = (payload) => {
   };
 };
 
+/* export const getPokemonByName = (payload) => {
+  return (dispatch) => {
+    axios
+      .get(`http://localhost:3001/pokemons?name=${payload}`)
+      .then((json) => json.data)
+      .then((json) => dispatch({ type: GET_POKEMON_NAME, payload: json }))
+      .catch((e) => {
+        alert("Pokemon not found");
+        window.location.href = "http://localhost:3000/home";
+        console.log(e);
+      });
+  };
+}; */
+
 export const getDetail = (id) => {
   return async (dispatch) => {
     try {
@@ -139,3 +174,11 @@ export const postPokemon = (payload) => {
     }
   };
 };
+
+/* export const postPokemon = (payload) => {
+  return () => {
+let createPoke = axios.post("http://localhost:3001/pokemons", payload);
+alert("New pokemón is created!");
+return createPoke;   
+  };
+}; */

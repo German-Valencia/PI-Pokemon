@@ -1,31 +1,29 @@
-/* eslint-disable import/no-extraneous-dependencies */
-/* const { expect } = require('chai');
-const session = require('supertest-session');
-const app = require('../../src/app.js');
-const { Pokemon, conn } = require('../../src/db.js');
+/* import React from "react";
+import { configure, mount } from "enzyme";
+import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
 
-const agent = session(app);
-const pokemon = {
-  name: 'Pikachu',
-};
+import Card from "../components/Card/Card.jsx";
 
-describe('Pokemon routes', () => {
-  before(() => conn.authenticate()
-  .catch((err) => {
-    console.error('Unable to connect to the database:', err);
-  }));
-  beforeEach(() => Pokemon.sync({ force: true })
-    .then(() => Pokemon.create(pokemon)));
-  describe('GET /pokemons', () => {
-    it('should get 200', () =>
-      agent.get('/pokemons').expect(200)
-    );
+configure({ adapter: new Adapter() });
+
+describe("<Card />", () => {
+  let wrapper;
+  let name;
+  let types
+  beforeEach(() => {
+    name = "pika2";
+    types = ["fire","ghost"]
+    wrapper = mount(<Card name={name} types={types} />);
   });
-});
- */
+
+  it('deberia renderizar un "h3" que contenga el "name" que recibe por props', () => {
+    expect(wrapper.contains(<h3>{name}</h3>)).toEqual(true);
+  });
+}); */
+
 
 const { Pokemon, conn } = require('../../src/db.js');
-const { expect } = require('chai');
+const { expec, before, done } = require('chai');
 
 describe('Pokemon model', () => {
   before(() => conn.authenticate()

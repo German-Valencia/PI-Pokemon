@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from 'react-router-dom';
-import pokemonImg from '../../img/pokemonTitle1.png'
+import pokemonImg from '../../img/pokemonTitle2.png'
 import styles from './Nav.module.css'
 
 const Nav = () => {
@@ -13,7 +13,7 @@ const Nav = () => {
                 </div>
                 <div>  
                     <Link to='/create'>
-                        <button className={styles.btn}>Create a pokemon</button>
+                        <button className={styles.btn}>Create a Pokemon</button>
                     </Link>
                 </div>
             </nav>

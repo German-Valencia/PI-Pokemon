@@ -65,7 +65,7 @@ router.post("/", async (req, res) => {
           },
         });
         pokemon.addType(typeDb);
-        return res.status(201).send("pokemon creado con éxito");
+        return res.status(201).send("successfully created pokemon");
       }
       return res.status(404).send("Pokemon name already exist");
     }
