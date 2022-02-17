@@ -1,7 +1,7 @@
 const express = require("express");
 const { Pokemon, Type } = require("../db");
-const { getPokemonDetail, 
-  getAllPokemon } = require("./functions");
+const { getAllPokemon, getDbInfo } = require("./functions");
+const axios = require("axios");
 
 const router = express.Router();
 
@@ -27,6 +27,7 @@ router.get("/", async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
+
   const allPokesId = await getAllPokemon();
   try {
     if (id) {
@@ -39,6 +40,31 @@ router.get("/:id", async (req, res) => {
     console.log(e);
   }
 });
+
+//https://pokeapi.co/api/v2/pokemon/1
+//id mio busco bd sino endpint api
+/* router.get("/:id", async (req, res) => {
+  const { id } = req.params;
+  if (id.length > 5) {
+    let pokemonById = await Pokemon.findAll({
+      include: {
+        model: Pokemon,
+        attributes: [`id: ${id}`],
+        through: {
+          attributes: [],
+        },
+      },
+    });
+    pokemonById.length
+      ? res.status(200).send(pokemonById)
+      : res.status(404).send("Pokemon not found hola");
+  } else {
+    pokemonById = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
+    pokemonById.length
+      ? res.status(200).send(pokemonById)
+      : res.status(404).send("Pokemon not found holayadios");
+  }
+}); */
 
 router.post("/", async (req, res) => {
   const { name, hp, attack, defense, speed, height, weight, img, types } =
@@ -64,7 +90,7 @@ router.post("/", async (req, res) => {
             name: types,
           },
         });
-        pokemon.addType(typeDb);
+        await pokemon.addType(typeDb);
         return res.status(201).send("successfully created pokemon");
       }
       return res.status(404).send("Pokemon name already exist");

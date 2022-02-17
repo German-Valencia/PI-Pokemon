@@ -17,11 +17,11 @@
   border: none;
   border-radius: 5px;
   font-family: "Verdana", sans-serif;
-  font-size: 0.98rem;
-  font-weight: 300;
+  font-size: 1rem;
+  font-weight: 400;
   text-align: center;
-  background: #f5f5f5;
-  color: #333;
+  /* background: #f5f5f5; */
+  color: #444;
   outline: none;
   box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.651);
   transition: box-shadow 0.3s;

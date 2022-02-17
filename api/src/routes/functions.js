@@ -1,7 +1,7 @@
 const axios = require("axios");
 const { Pokemon, Type } = require("../db");
 
-//TRAIGO LOS DATOS DE LA API, HACIENDO OTRO LLAMADO A LA URL DEL POKEMON PARA QUE ME TRAIGA LOS DATOS NECESARIOS EN LA RUTA PRINCIPAL (NOMBRE, IMAGEN, TIPO).
+//consigo los 40 pokemons incluyendo imagenes para su tipo determinado
 const getApiInfo = async () => {
   try {
     let url = "https://pokeapi.co/api/v2/pokemon/";
@@ -74,7 +74,7 @@ const getPokemonDetail = async (arg) => {
   }
 };
 
-//TRAIGO TODOS LOS POKEMONES CREADOS DESDE LA BASE DE DATOS EN LA TABLA POKEMON, Y QUE INCLUYA LA TABLA TYPE CON SU ATRIBUTO NAME.
+//TRAIGO TODOS LOS POKEMONES CREADOS DESDE LA BASE DE DATOS EN LA TABLA POKEMON, Y QUE INCLUYA LA TABLA TYPE CON SUS ATRIBUTOS NAME & IMG.
 const getDbInfo = async () => {
   return await Pokemon.findAll({
     include: {
@@ -87,7 +87,7 @@ const getDbInfo = async () => {
   });
 };
 
-//TRAIGO TODOS LOS POKEMONES, TANTO DE LA API COMO DE LA DB.
+//UNO TODOS LOS POKEMONES, TANTO DE LA API COMO DE LA DB EN ALLPOKEMON.
 const getAllPokemon = async () => {
   const apiInfo = await getApiInfo();
   const dbInfo = await getDbInfo();
