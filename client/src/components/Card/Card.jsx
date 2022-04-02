@@ -17,6 +17,9 @@ export default function Card({ name, image, types, id }) {
           />
           <h2>{name.charAt(0).toUpperCase() + name.slice(1)}</h2>
           <div className={styles.types}>
+            
+            
+            
             {types?.map((e, k) => {
               return (
                 <div className={styles.types} key={k}>

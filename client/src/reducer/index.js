@@ -1,15 +1,15 @@
 import {
   GET_POKEMONS,
+  CLEAN_POKEMONS,
+  GET_POKEMON_NAME,
   GET_ALL_TYPES,
   FILTER_CREATED,
   ORDER_NAME,
   FILTER_TYPE,
   ORDER_STR,
-  GET_POKEMON_NAME,
   POST_POKEMON,
   GET_DETAILS,
   CLEAN_DETAIL,
-  CLEAN_POKEMONS,
 } from "../actions";
 
 const initialState = {
@@ -37,7 +37,6 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         types: action.payload,
       };
-
     case FILTER_CREATED:
       let copy = state.allPokemons;
       let createdFiltered;
@@ -52,7 +51,6 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         pokemons: createdFiltered,
       };
-
     case FILTER_TYPE:
       let copyTwo = state.allPokemons;
       let typeFiltered =
@@ -69,7 +67,6 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         pokemons: typeFiltered,
       };
-
     case ORDER_NAME:
       let copy3 = state.pokemons;
       let sortedName =
@@ -84,7 +81,6 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         pokemons: sortedName,
       };
-
     case ORDER_STR:
       let copy4 = state.pokemons;
       let sortedStr =
@@ -95,7 +91,6 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         pokemons: sortedStr,
       };
-
     case GET_POKEMON_NAME:
       return {
         ...state,

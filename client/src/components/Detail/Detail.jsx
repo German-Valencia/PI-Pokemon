@@ -45,7 +45,7 @@ const Detail = (props) => {
                       </p>
                     </div>
                   );
-                })}{" "}
+                })}
               </h3>
             </div>
             <h5 className={styles.h5}>HP: {myPokemon[0].hp}</h5>

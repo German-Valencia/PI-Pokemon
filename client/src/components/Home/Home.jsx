@@ -11,6 +11,7 @@ import styles from "./Home.module.css";
 export default function Home() {
   const dispatch = useDispatch();
   const allPokemons = useSelector((state) => state.pokemons);
+
   //Paginado acá abajo
   const [currentPage, setCurrentPage] = useState(1);
   const [pokemonsPerPage, setPokemonsPerPage] = useState(12); // eslint-disable-line no-unused-vars
@@ -18,10 +19,7 @@ export default function Home() {
   //Para modificar el estado local y me ayude al renderizado
   const indexOfLastPokemon = currentPage * pokemonsPerPage;
   const indexOfFirstPokemon = indexOfLastPokemon - pokemonsPerPage;
-  const currentPokemons = allPokemons.slice(
-    indexOfFirstPokemon,
-    indexOfLastPokemon
-  );
+  const currentPokemons = allPokemons.slice(indexOfFirstPokemon, indexOfLastPokemon);
 
   const pagination = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -54,6 +52,7 @@ export default function Home() {
                 Clear filters
               </button>
             </div>
+
             <div>
               <div>
                 <Pagination
@@ -65,9 +64,8 @@ export default function Home() {
               <div className={styles.cards}>
                 {currentPokemons?.map((e, k) => {
                   return (
-                    <div key={k} className={styles.card}>
-                      <Card
-                        key={e.id}
+                    <div key={e.id} className={styles.card}>
+                      <Card                        
                         id={e.id}
                         name={e.name}
                         image={e.img}

@@ -58,7 +58,6 @@ const PokemonCreate = () => {
     if (!validateUrl.test(input.img)) {
       errors.img = "URL required";
     }
-
     return errors;
   };
 
